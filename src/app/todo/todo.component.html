@@ -1,0 +1,17 @@
+<div class="form">
+    <div class="adding-form">
+        N: <input type="text" [formControl]="controlNewTaskName" />
+        <button (click)="addTask('Test name')">Add new</button>
+    </div>
+    
+    <div *ngFor="let task of tasks; index as index">
+        {{task.id}}: <input type="text" [formControl]="controlTaskNames.at(index)" (change)="updateTask(index)">
+        <button (click)="removeTask(task.id)" style="color: red">Remove</button>
+    </div>
+
+    <br /><br /><br /><br />
+    <code>
+        <b>debug area</b><br />
+        {{tasks | json}}
+    </code>
+</div>
